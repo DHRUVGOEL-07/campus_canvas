@@ -1,0 +1,49 @@
+/* Set body and HTML to cover full viewport */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Set body styles */
+body {
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Hide horizontal scrollbar */
+}
+
+/* Create a container */
+.container {
+  display: flex;
+  height: 100%; /* Occupy full height of viewport */
+}
+
+/* Set background image on the left */
+.background {
+  flex: 1;
+  background-image: url('https://images.shiksha.com/mediadata/images/1588071678phpIvwmGv.jpeg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Styles for the login box on the right */
+.login-box {
+  flex: 1;
+  background-color: rgb(165, 42, 42); 
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Styles for the logo */
+.logo {
+  width: 150px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Add some space below the logo */
+}
+
+/* Rest of your existing styles */
+/* ... */

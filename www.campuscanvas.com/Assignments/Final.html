@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(37,150,190);
+        }
+
+        header {
+            background-color: #257;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .app-container {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 200);
+            background-color: #fff;
+            border: 1px solid #ddd; /* Border style */
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 1em;
+            font-size: 1.2em;
+            color: #356;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 0.8em 1em;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #45a049;
+        }
+
+        .add-subject {
+            background-color: #0038;
+            color: #fff;
+            padding: 0.8em 1.5em;
+            font-size: 1em;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 1em;
+            display: block;
+        }
+
+        .add-subject:hover {
+            background-color: #2980b4;
+        }
+
+        button {
+            background-color: #4CAF55;
+            color: #fff;
+            padding: 0.8em 1.5em;
+            font-size: 1em;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .success-message {
+            color: #4CAF50;
+            font-weight: bold;
+            margin-top: 1em;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+    </style>
+    <title>Assignment Upload</title>
+</head>
+<body>
+
+    <header>
+        <h1>Assignment Upload</h1>
+    </header>
+
+    <div class="app-container" id="sectionsContainer">
+        <!-- Sections will be dynamically added here -->
+    </div>
+
+    <script>
+        function addSubject(sectionId) {
+            var sectionContainer = document.getElementById(sectionId);
+
+            // Create a new form for the subject
+            var newSubjectForm = document.createElement("div");
+            newSubjectForm.className = "section-container";
+            newSubjectForm.innerHTML = `
+                <h2>Subject</h2>
+                <form class="assignmentForm">
+                    <label for="subject">Subject:</label>
+                    <input type="text" name="subject" required>
+
+                    <label for="assignmentName">Assignment Name:</label>
+                    <input type="text" name="assignmentName" required>
+
+                    <label for="fileUpload" class="custom-file-upload">Choose File</label>
+                    <input type="file" name="fileUpload" accept=".pdf, .doc, .docx" required>
+
+                    <button type="submit">Upload Assignment</button>
+                </form>
+                <div class="success-message" style="display:none;">
+                    Assignment successfully uploaded!
+                </div>
+            `;
+
+            // Append the new form to the section container
+            sectionContainer.appendChild(newSubjectForm);
+
+            // Add event listener to the new form
+            newSubjectForm.querySelector(".assignmentForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                // Handle form submission logic here (e.g., AJAX request to upload the file).
+
+                // For demonstration purposes, let's show a success message.
+                newSubjectForm.querySelector(".success-message").style.display = "block";
+                setTimeout(function() {
+                    newSubjectForm.querySelector(".success-message").style.display = "none";
+                }, 3000);
+
+                // You can also reset the form after submission if needed.
+                // event.target.reset();
+            });
+        }
+
+        document.getElementById("sectionsContainer").innerHTML = `
+            <div id="section1" class="section-container">
+                <h2>Section: Computer Science</h2>
+            </div>
+        `;
+
+        addSubject("section1");
+
+        function addNewSection() {
+            var newSectionContainer = document.createElement("div");
+            newSectionContainer.id = "section" + (document.getElementsByClassName("section-container").length + 1);
+            newSectionContainer.className = "section-container";
+
+            newSectionContainer.innerHTML = `
+                <h2>New Section</h2>
+                <button class="add-subject" onclick="addSubject('${newSectionContainer.id}')">Add Subject</button>
+            `;
+
+            document.getElementById("sectionsContainer").appendChild(newSectionContainer);
+            addSubject(newSectionContainer.id);
+        }
+    </script>
+
+    <button class="add-subject" onclick="addNewSection()">Add New Section</button>
+
+    <footer>
+        <p>&copy; 2023 Your College</p>
+    </footer>
+
+</body>
+</html>
+

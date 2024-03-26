@@ -1,0 +1,43 @@
+/* Your styles for the website */
+/* Main container styles */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  /* Styles for reminder box */
+  .reminder-box {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+  }
+  
+  /* Styles for productivity chart box */
+  .productivity-chart-box {
+    width: 65%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Adjust the canvas size for the chart */
+  #reminderChart {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Styles for reminder counts */
+  .completed-reminders-box,
+  .pending-reminders-box {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Canvas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <!-- Your header content -->
+  </header>
+
+  <main class="main-container">
+    <section class="reminder-box">
+      <h2>Add Reminder</h2>
+      <!-- Form to add reminders -->
+      <form id="reminderForm">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="reminderDate">Date:</label>
+        <input type="date" id="reminderDate" name="reminderDate" required>
+
+        <label for="reminderTime">Time:</label>
+        <input type="time" id="reminderTime" name="reminderTime" required>
+
+        <button type="submit">Add Reminder</button>
+      </form>
+    </section>
+
+    <section class="productivity-chart-box">
+      <h2>Completed Reminders</h2>
+      <div class="completed-reminders-box">
+        <p>Completed Reminders: <span id="completedCount">0</span></p>
+      </div>
+      <div class="pending-reminders-box">
+        <p>Pending Reminders: <span id="pendingCount">0</span></p>
+      </div>
+      <canvas id="reminderChart" width="200" height="100"></canvas>
+    </section>
+
+    <!-- Other sections and content -->
+  </main>
+
+  <footer>
+    <!-- Your footer content -->
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
